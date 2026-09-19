@@ -4,7 +4,7 @@ GhostCTO profiles by Montcao are portable [Agent Skills](https://agentskills.io/
 
 ## Install
 
-The tested `skills` CLI (1.7.0) requires Node.js 22.20.0 or newer and Git. From a published checkout, install one profile with:
+The tested `skills` CLI (1.7.0) requires Node.js 22.20.0 or newer and Git. From your project directory, install one profile with:
 
 ```sh
 npx skills add montcao/ghostcto-profiles --skill ghostcto-developer
@@ -18,7 +18,7 @@ To install from a local clone of this repository, run this command from the clon
 npx skills add . --skill ghostcto-developer
 ```
 
-The public repository is still being prepared. The published command above is the intended source form and has not been remotely verified here. For a safe local test, use a temporary project with isolated CLI configuration rather than your normal agent setup.
+Remote installation of all six profiles was verified with skills CLI 1.7.0, Node.js 22.21.1, and the Codex installation target. This confirms distribution, not task quality or cost savings. For a safe local test, use a temporary project rather than your normal agent setup.
 
 ## Profiles
 
