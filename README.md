@@ -29,6 +29,8 @@ Remote installation of all six profiles was verified with skills CLI 1.7.0, Node
   <img src="assets/issue-triager.svg" width="110" alt="Issue Triager ghost" />
   <img src="assets/pr-summarizer.svg" width="110" alt="PR Summarizer ghost" />
   <img src="assets/lint-fixer.svg" width="110" alt="Lint Fixer ghost" />
+  <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/security.svg" width="110" alt="Security ghost" />
+  <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/cicd-infrastructure.svg" width="110" alt="CI/CD Infrastructure ghost" />
 </p>
 
 | Profile | Use it for |
@@ -39,6 +41,8 @@ Remote installation of all six profiles was verified with skills CLI 1.7.0, Node
 | `ghostcto-issue-triager` | Evidence-based summaries and suggested labels for supplied issues |
 | `ghostcto-pr-summarizer` | A factual summary of a supplied diff and its checks |
 | `ghostcto-lint-fixer` | Mechanical fixes for an explicit diagnostic set |
+| `ghostcto-security` | Scoped exposure reviews and authorized repository hardening |
+| `ghostcto-cicd-infrastructure` | Bounded CI/CD repairs, validation, and release workflows |
 
 These profiles are intentionally limited to routine, bounded work. They should escalate unclear requirements, broad architecture changes, security-sensitive decisions, and work that exceeds the profile's output contract. Review generated changes and run the repository's own checks.
 
