@@ -1,7 +1,7 @@
 ---
 name: ghostcto-test-writer
 description: Add focused regression tests for a specified function, behavior, or known defect when expected results and the repository test tooling are available.
-license: MIT
+license: Apache-2.0
 ---
 
 # Test Writer

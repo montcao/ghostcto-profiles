@@ -1,7 +1,7 @@
 ---
 name: ghostcto-issue-triager
 description: Turn supplied issue text, logs, and repository evidence into a structured triage summary with cautious suggested labels and next steps.
-license: MIT
+license: Apache-2.0
 ---
 
 # Issue Triager

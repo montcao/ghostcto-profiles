@@ -1,7 +1,7 @@
 ---
 name: ghostcto-security
 description: Review a bounded repository change or publication for credential exposure, private data, workflow trust, and missing repository protections; apply scoped hardening when authorized. Use for a pre-push security check or a named repository security issue, not a full penetration test or compliance certification.
-license: MIT
+license: Apache-2.0
 ---
 
 # Security

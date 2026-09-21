@@ -15,7 +15,10 @@ for (const name of directories) {
   assert.ok(name.length <= 64);
   assert.equal(typeof metadata.description, "string");
   assert.ok(metadata.description.trim().length > 0 && metadata.description.length <= 1024);
-  assert.equal(metadata.license, "MIT");
+  assert.equal(metadata.license, "Apache-2.0");
   assert.ok(match[2].trim().length > 0);
+  for (const file of ["LICENSE", "NOTICE"]) {
+    assert.equal(await readFile(`skills/${name}/${file}`, "utf8"), await readFile(file, "utf8"), `${name}: bundled ${file} must match repository`);
+  }
   console.log(`Validated ${name}`);
 }

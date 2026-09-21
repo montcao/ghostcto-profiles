@@ -50,4 +50,6 @@ No universal quality, cost, speed, or model-performance claim has been establish
 
 ## License
 
-The profile content is available under the MIT License in [`LICENSE`](LICENSE). Dependencies, host tools, and the upstream `skills` CLI retain their own terms.
+The profile content is available under the Apache License, Version 2.0 in [`LICENSE`](LICENSE). Dependencies, host tools, and the upstream `skills` CLI retain their own terms.
+
+The Apache-2.0 license applies from this license-change revision onward. Earlier tagged releases retain their original MIT license. See [`NOTICE`](NOTICE) for attribution. Third-party licenses are unchanged.

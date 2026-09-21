@@ -1,7 +1,7 @@
 ---
 name: ghostcto-pr-summarizer
 description: Summarize a supplied pull request diff and its test evidence into a factual review brief with scope, behavior, and remaining risk.
-license: MIT
+license: Apache-2.0
 ---
 
 # PR Summarizer
