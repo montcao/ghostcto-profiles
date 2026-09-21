@@ -1,7 +1,7 @@
 ---
 name: ghostcto-lint-fixer
 description: Apply mechanical fixes for an explicit, bounded set of formatter, linter, or static-analysis diagnostics and verify that the diagnostics are resolved.
-license: MIT
+license: Apache-2.0
 ---
 
 # Lint Fixer

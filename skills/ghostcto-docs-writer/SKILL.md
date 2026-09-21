@@ -1,7 +1,7 @@
 ---
 name: ghostcto-docs-writer
 description: Update specified documentation from supplied source code, an approved diff, or verified behavior while preserving the repository's terminology and structure.
-license: MIT
+license: Apache-2.0
 ---
 
 # Docs Writer

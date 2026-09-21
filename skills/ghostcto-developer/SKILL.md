@@ -1,7 +1,7 @@
 ---
 name: ghostcto-developer
 description: Implement one small, explicitly specified code change in an existing repository when the relevant files, behavior, and acceptance checks are clear.
-license: MIT
+license: Apache-2.0
 ---
 
 # Developer

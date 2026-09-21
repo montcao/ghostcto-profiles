@@ -1,7 +1,7 @@
 ---
 name: ghostcto-cicd-infrastructure
 description: Create or repair a bounded build, validation, or release pipeline using the repository's existing CI/CD and infrastructure conventions. Use for GitHub Actions hardening, reproducible installs, protected-branch checks, and semantic-release setup; escalate cloud IAM redesign, destructive infrastructure changes, and unapproved production deployment.
-license: MIT
+license: Apache-2.0
 ---
 
 # CI/CD Infrastructure
