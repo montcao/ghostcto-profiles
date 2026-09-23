@@ -17,6 +17,8 @@ Do not use it to invent undocumented behavior, publish announcements, make legal
 3. Write concrete steps and examples that match the source. Prefer existing commands and links; flag placeholders and environment-specific values explicitly.
 4. Check links, code fences, headings, spelling, and any repository documentation check. Review the final diff for unsupported claims. Make at most one targeted correction after a failed check.
 
+If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
+
 ## Output
 
 Report the documents changed, source evidence used, checks actually run, and any unverified command, link, or behavior. If a requested statement cannot be supported, leave it out and identify the missing source or reviewer decision.
