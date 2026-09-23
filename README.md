@@ -18,7 +18,7 @@ To install from a local clone of this repository, run this command from the clon
 npx skills add . --skill ghostcto-developer
 ```
 
-Remote installation of all eight profiles was verified with skills CLI 1.7.0, Node.js 22.21.1, and the Codex installation target. This confirms distribution, not task quality or cost savings. For a safe local test, use a temporary project rather than your normal agent setup.
+Remote installation was verified for the first eight profiles with skills CLI 1.7.0, Node.js 22.21.1, and the Codex installation target. This confirms distribution, not task quality or cost savings. The three application specialists are newly published and their remote installation has not been verified yet; treat them as untested for distribution until this note says otherwise. For a safe local test, use a temporary project rather than your normal agent setup.
 
 ## Profiles
 
@@ -31,6 +31,9 @@ Remote installation of all eight profiles was verified with skills CLI 1.7.0, No
   <img src="assets/lint-fixer.svg" width="110" alt="Lint Fixer ghost" />
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/security.svg" width="110" alt="Security ghost" />
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/cicd-infrastructure.svg" width="110" alt="CI/CD Infrastructure ghost" />
+  <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/mcp-apps-specialist.svg" width="110" alt="MCP Apps Specialist ghost" />
+  <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/web-specialist.svg" width="110" alt="Web Specialist ghost" />
+  <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/desktop-specialist.svg" width="110" alt="Desktop Specialist ghost" />
 </p>
 
 | Profile | Use it for |
@@ -43,6 +46,11 @@ Remote installation of all eight profiles was verified with skills CLI 1.7.0, No
 | `ghostcto-lint-fixer` | Mechanical fixes for an explicit diagnostic set |
 | `ghostcto-security` | Scoped exposure reviews and authorized repository hardening |
 | `ghostcto-cicd-infrastructure` | Bounded CI/CD repairs, validation, and release workflows |
+| `ghostcto-mcp-apps-specialist` | MCP app architecture, implementation, and verification boundaries |
+| `ghostcto-web-specialist` | Web application work across client, server, and tenant isolation |
+| `ghostcto-desktop-specialist` | Desktop application work including process and IPC boundaries |
+
+The first eight are task profiles for a single kind of work. The three specialists are broader application profiles, scoped to one platform.
 
 These profiles are intentionally limited to routine, bounded work. They should escalate unclear requirements, broad architecture changes, security-sensitive decisions, and work that exceeds the profile's output contract. Review generated changes and run the repository's own checks.
 
