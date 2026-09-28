@@ -17,6 +17,8 @@ Do not use it for architecture redesign, broad migrations, security-sensitive ch
 3. Use deterministic search, formatters, generators, and repository tools before making an edit. Implement only the requested change, following nearby patterns.
 4. Run the narrowest meaningful checks. If a check fails, make at most one targeted repair when the cause is clear, then rerun it. Do not broaden the task to make unrelated checks pass.
 
+If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
+
 ## Output
 
 Report the outcome, changed files, checks actually run and their results, assumptions, and any unresolved blocker. Include a concise note for a reviewer when behavior or test coverage changed. Do not claim a check passed if it was unavailable or not run.

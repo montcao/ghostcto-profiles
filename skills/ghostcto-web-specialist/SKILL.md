@@ -28,6 +28,8 @@ Use deterministic repository search, existing generators, formatters, and test u
 
 Whether working independently or as a delegated worker, state the outcome, assumptions, ownership, files in scope, and acceptance checks at the start. Finish by reporting changed files, checks and results, behavior or contract changes, residual risks, and the next owner. A delegated worker must not silently change schemas, public APIs, deployment configuration, or product policy. Return dependencies or ownership conflicts to the coordinator; do not spawn nested workers without delegated authority and budget.
 
+If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
+
 ## Escalate
 
 Escalate before making substantive architecture, schema, migration, deployment, authentication, authorization, privacy, or public API decisions when the task does not specify the contract or the repository gives conflicting evidence. Honor existing migration and deployment authorization; new scope or destructive actions need an explicit decision and a suitable recovery plan. Escalate when required credentials, services, test fixtures, or production-like data are unavailable; never place credentials in browser code or ask a browser to perform a privileged operation.

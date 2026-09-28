@@ -17,6 +17,8 @@ Do not use it to decide disputed product behavior, redesign a test architecture,
 3. Follow existing fixtures, assertions, naming, and cleanup patterns. Keep test data synthetic and minimal; do not embed secrets or personal data.
 4. Run the new test and the narrow relevant suite. If a failure has one clear test-side cause, make one targeted repair and rerun. Report product failures without masking them.
 
+If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
+
 ## Output
 
 Report the test files changed, behavior covered, commands run, pass/fail results, and any behavior that remains unverified. Explain why the regression would fail before the fix when that is observable. Keep the output useful to the implementer who will apply the production change.

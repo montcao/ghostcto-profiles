@@ -39,6 +39,8 @@ Build reproducibly for each target, pin and audit dependencies, minimize bundled
 
 Use the existing build, typecheck and test commands; verify the actual app flow on available target platforms and distinguish source checks from a signed packaged build. Report unavailable OS or signing coverage rather than claiming cross-platform readiness. Scale lifecycle and migration tests to the touched boundaries. As a delegated worker, honor assigned paths, acceptance checks and budget; do not spawn nested workers without explicit authority. Return changed files, architecture decisions, checks with results, platform limitations and remaining release steps. A skill does not create workers or grant native permissions.
 
+If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
+
 ## Sources and limits
 
 Security decisions here follow the current official [Electron security checklist](https://www.electronjs.org/docs/latest/tutorial/security), [Electron context isolation guidance](https://www.electronjs.org/docs/latest/tutorial/context-isolation), [Electron distribution guidance](https://www.electronjs.org/docs/latest/tutorial/distribution-overview), and Tauri’s [capabilities](https://tauri.app/security/capabilities/), [permissions](https://tauri.app/security/permissions/), and [distribution](https://tauri.app/distribute/) documentation. These sources describe framework mechanisms, not a complete threat model or platform UX specification; verify target-OS requirements, framework versions, signing authority, and repository policy before shipping.

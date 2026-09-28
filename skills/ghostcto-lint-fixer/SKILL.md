@@ -17,6 +17,8 @@ Do not use it for semantic refactors, broad rule changes, dependency upgrades, g
 3. Rerun the targeted diagnostic and the relevant focused check. If one clear mechanical issue remains, make at most one targeted repair and rerun it.
 4. Stop when the requested diagnostics are resolved or when a semantic decision is required. Do not weaken rules or alter configuration to force a pass.
 
+If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
+
 ## Output
 
 Report the diagnostic set, files changed, exact commands and results, and any remaining diagnostics. State whether the fix was automatic or hand-applied. Include a blocker when a warning requires a semantic choice.

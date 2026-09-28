@@ -36,3 +36,5 @@ Return changed files, triggers and permissions, checks and observed outcomes, re
 
 GitHub reference for trust and permission details:
 https://docs.github.com/en/actions/reference/security/secure-use
+
+If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
