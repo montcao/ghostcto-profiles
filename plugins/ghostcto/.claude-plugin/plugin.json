@@ -1,0 +1,8 @@
+{
+  "name": "ghostcto",
+  "description": "GhostCTO profiles by Montcao: portable skills for bounded software work, from single changes to setting a repository up for coding agents.",
+  "author": {
+    "name": "Montcao"
+  },
+  "license": "Apache-2.0"
+}

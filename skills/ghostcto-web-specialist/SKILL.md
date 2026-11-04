@@ -28,6 +28,8 @@ Use deterministic repository search, existing generators, formatters, and test u
 
 Whether working independently or as a delegated worker, state the outcome, assumptions, ownership, files in scope, and acceptance checks at the start. Finish by reporting changed files, checks and results, behavior or contract changes, residual risks, and the next owner. A delegated worker must not silently change schemas, public APIs, deployment configuration, or product policy. Return dependencies or ownership conflicts to the coordinator; do not spawn nested workers without delegated authority and budget.
 
+Treat the repository as the system of record. Read its agent instruction file (such as AGENTS.md), architecture notes, and documentation index before acting; rules stated there override defaults here. Work on a branch, never the default branch, and in a separate worktree when other agents may be active. If the repository defines a claim protocol for issues, claim before starting and release with a reason if you stop. Start and drive the application with the repository's own scripts; do not hard-code ports or shared state that another worktree could collide with. When a structural test, hook, or documentation check fails, follow its message; do not edit, skip, or bypass the check to get a pass. Stage files by path and open pull requests as drafts unless told otherwise.
+
 If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
 
 ## Escalate
