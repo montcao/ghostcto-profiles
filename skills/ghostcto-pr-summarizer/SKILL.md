@@ -17,6 +17,8 @@ Do not approve, merge, publish, comment on, or edit a pull request. Do not infer
 3. Record checks by exact command or provider result, including failures, skipped checks, and unavailable environments. Call out migrations, public API changes, permissions, and rollback concerns when visible.
 4. Review every sentence for support in the diff or evidence. Do not make repository or hosting changes. Correct one clear factual error if found, then stop.
 
+Read the repository's agent instruction file (such as AGENTS.md), architecture notes, and documentation index first, and judge against the rules stated there. When the same mistake appears more than once, suggest turning it into a check (an instruction-file line, a structural test, or a documentation check) rather than something a reviewer must remember.
+
 ## Output
 
 Return a concise draft with: problem and outcome; key changes; validation evidence; risks or follow-ups; and unresolved questions. Link or name relevant files when the host supports it. State explicitly when no check evidence was supplied.
