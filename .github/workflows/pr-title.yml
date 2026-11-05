@@ -1,0 +1,17 @@
+name: PR title
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+permissions:
+  contents: read
+jobs:
+  pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Check the PR title, which becomes the squash commit subject
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: node scripts/check-commit-subject.mjs "$TITLE"
