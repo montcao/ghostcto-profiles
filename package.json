@@ -3,6 +3,10 @@
   "private": true,
   "scripts": {
     "test": "node scripts/validate.mjs",
+    "docs:check": "node scripts/docs-check.mjs",
+    "check:discovery": "node scripts/check-discovery.mjs",
+    "check": "npm test && npm run docs:check",
+    "hooks": "git config core.hooksPath .githooks",
     "release": "semantic-release"
   },
   "engines": {

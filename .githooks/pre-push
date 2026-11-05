@@ -1,0 +1,13 @@
+#!/bin/sh
+# Runs the cheap checks, and checks the subjects of the commits being pushed.
+# Enable with: npm run hooks. The same checks run in CI (validate job).
+set -e
+zero=0000000000000000000000000000000000000000
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue
+  if [ "$remote_sha" = "$zero" ]; then range="origin/main..$local_sha"; else range="$remote_sha..$local_sha"; fi
+  for sha in $(git rev-list --no-merges "$range"); do
+    node scripts/check-commit-subject.mjs "$(git log -1 --format=%s "$sha")" || { echo "pre-push: commit $sha needs a Conventional Commit subject; reword it before pushing." >&2; exit 1; }
+  done
+done
+npm run --silent check
