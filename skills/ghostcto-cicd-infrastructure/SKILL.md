@@ -21,6 +21,7 @@ Use the existing stack. Avoid a new installer, orchestration service, cloud prov
 - Give write permissions only to the trusted release job that needs them, after validation. Keep credentials in the host's secret mechanism, out of files, logs, command strings, and artifacts. For cloud authentication, prefer an existing narrowly scoped OIDC setup when available; creating or expanding its trust policy is a separate access decision.
 - Pass untrusted text as properly quoted data rather than interpolating expressions into shell code. Define useful timeouts and concurrency behavior; avoid cancelling a production deployment halfway through a stateful operation. Treat dependency changes as reviewable PRs, not automatic merges.
 - Match release triggers to branch protections and actual required check names. Preserve signing and review requirements; do not disable security controls to get a green run. A solo maintainer's approval policy must be explicit rather than silently pretending independent review exists.
+- Keep gates few, fast, and blocking. Run the same cheap checks in a local pre-push hook and in one CI gate so they agree. Check commit messages, and PR titles when the repository squash-merges. Run documentation and link checks on pull requests and on a schedule. Add no model calls to CI without explicit approval.
 
 ## Releases and verification
 
@@ -36,5 +37,7 @@ Return changed files, triggers and permissions, checks and observed outcomes, re
 
 GitHub reference for trust and permission details:
 https://docs.github.com/en/actions/reference/security/secure-use
+
+Treat the repository as the system of record. Read its agent instruction file (such as AGENTS.md), architecture notes, and documentation index before acting; rules stated there override defaults here. Work on a branch, never the default branch, and in a separate worktree when other agents may be active. If the repository defines a claim protocol for issues, claim before starting and release with a reason if you stop. Start and drive the application with the repository's own scripts; do not hard-code ports or shared state that another worktree could collide with. When a structural test, hook, or documentation check fails, follow its message; do not edit, skip, or bypass the check to get a pass. Stage files by path and open pull requests as drafts unless told otherwise.
 
 If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.

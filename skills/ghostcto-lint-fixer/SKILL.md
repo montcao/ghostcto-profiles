@@ -15,7 +15,9 @@ Do not use it for semantic refactors, broad rule changes, dependency upgrades, g
 1. Read local rules and identify the exact lint, formatter, or analyzer command. Capture the initial diagnostics and confirm the target files and rule IDs.
 2. Apply the narrowest deterministic fix. Inspect the diff for behavior changes, accidental formatting churn, generated files, and new suppressions.
 3. Rerun the targeted diagnostic and the relevant focused check. If one clear mechanical issue remains, make at most one targeted repair and rerun it.
-4. Stop when the requested diagnostics are resolved or when a semantic decision is required. Do not weaken rules or alter configuration to force a pass.
+4. Stop when the requested diagnostics are resolved or when a semantic decision is required. Do not weaken rules, raise a ratchet baseline such as a file-length or warning-count limit, or alter configuration to force a pass.
+
+Treat the repository as the system of record. Read its agent instruction file (such as AGENTS.md), architecture notes, and documentation index before acting; rules stated there override defaults here. Work on a branch, never the default branch, and in a separate worktree when other agents may be active. If the repository defines a claim protocol for issues, claim before starting and release with a reason if you stop. Start and drive the application with the repository's own scripts; do not hard-code ports or shared state that another worktree could collide with. When a structural test, hook, or documentation check fails, follow its message; do not edit, skip, or bypass the check to get a pass. Stage files by path and open pull requests as drafts unless told otherwise.
 
 If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
 
