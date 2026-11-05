@@ -1,5 +1,7 @@
 ---
 name: mcp-apps-specialist
+metadata:
+  internal: true
 description: Design, build, review, or troubleshoot MCP Apps that pair MCP server tools with secure interactive UI resources. Use as a direct implementation specialist or as a coordinator worker; preserve the repository stack and host authorization, and escalate unsupported host, auth, or deployment decisions.
 license: Apache-2.0
 ---
@@ -29,7 +31,17 @@ Acceptance requires: the server builds and existing checks pass; `tools/list` an
 
 ## Coordination and handoff
 
-As a coordinator worker, honor assigned ownership and return evidence to the coordinator; do not spawn nested workers unless explicitly delegated that authority and budget. When coordinating directly, delegate only independent bounded work and reconcile schemas and evidence. Native delegation is allowed only when authorized, the host supports it, and budget permits it; never simulate subagents with invented tools or hidden parallelism. As a direct specialist, hand off changed files, schemas, transport/auth assumptions, host tested, commands and outcomes, compatibility gaps, and the next authorized action. Stop for missing credentials, a new permission boundary, destructive deployment, or an unresolved host/security decision.
+As a coordinator worker, honor assigned ownership and return evidence to the coordinator; do not spawn nested workers unless explicitly delegated that authority and budget. When coordinating directly, delegate only independent bounded work and reconcile schemas and evidence. Native delegation is allowed only when authorized, the host supports it, and budget permits it; never simulate subagents with invented tools or hidden parallelism.
+
+## Output
+
+As a direct specialist, hand off changed files, schemas, transport/auth assumptions, host tested, commands and outcomes, compatibility gaps, and the next authorized action.
+
+## Escalate
+
+Stop for missing credentials, a new permission boundary, destructive deployment, or an unresolved host/security decision.
+
+## Sources
 
 References: [MCP Apps overview](https://apps.extensions.modelcontextprotocol.io/api/documents/overview.html), [stable MCP Apps specification](https://github.com/modelcontextprotocol/ext-apps/blob/main/specification/2026-01-26/apps.mdx), [official ext-apps SDK and examples](https://github.com/modelcontextprotocol/ext-apps), [CSP and CORS guidance](https://github.com/modelcontextprotocol/ext-apps/blob/main/docs/csp-cors.md), and [MCP authorization](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/specification/2025-06-18/basic/authorization.mdx). These are versioned, host-dependent protocols; verify the applicable spec and SDK version before relying on an API, and treat current client support as a limitation rather than a guarantee.
 

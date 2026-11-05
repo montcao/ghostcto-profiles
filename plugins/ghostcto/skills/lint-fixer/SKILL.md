@@ -1,5 +1,7 @@
 ---
 name: lint-fixer
+metadata:
+  internal: true
 description: Apply mechanical fixes for an explicit, bounded set of formatter, linter, or static-analysis diagnostics and verify that the diagnostics are resolved.
 license: Apache-2.0
 ---

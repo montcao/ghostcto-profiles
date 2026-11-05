@@ -1,5 +1,7 @@
 ---
 name: docs-writer
+metadata:
+  internal: true
 description: Update specified documentation from supplied source code, an approved diff, or verified behavior while preserving the repository's terminology and structure.
 license: Apache-2.0
 ---

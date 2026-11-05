@@ -18,7 +18,7 @@ To install from a local clone of this repository, run this command from the clon
 npx skills add . --skill ghostcto-developer
 ```
 
-Remote installation was verified for the first eight profiles with skills CLI 1.7.0, Node.js 22.21.1, and the Codex installation target. This confirms distribution, not task quality or cost savings. The three application specialists are newly published and their remote installation has not been verified yet; treat them as untested for distribution until this note says otherwise. For a safe local test, use a temporary project rather than your normal agent setup.
+Remote installation was verified for the first eight profiles and the three application specialists with skills CLI 1.7.0, Node.js 22.21.1, and the Codex installation target. This confirms distribution, not task quality or cost savings. For a safe local test, use a temporary project rather than your normal agent setup.
 
 ### Claude Code plugin
 
