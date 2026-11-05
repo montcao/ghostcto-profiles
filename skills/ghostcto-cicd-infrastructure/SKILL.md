@@ -33,11 +33,17 @@ Validate syntax and run the actual build/check command in a clean or isolated pr
 
 Test a published artifact with the consumer's real installation path, without modifying their normal environment. Compare contents to the reviewed source. On an uncertain push or deployment response, inspect remote branch/tag IDs, release records, workflow conclusions, and package/artifact existence before a retry. Identify partial publication and retry only the missing safe step; do not rerun semantic-release blindly. Do not automatically retry destructive operations or delete tags/history to repair a release.
 
-Return changed files, triggers and permissions, checks and observed outcomes, remaining deployment steps, and recovery options. Escalate missing production authority, destructive infrastructure plans, secret exposure, or failures beyond a bounded targeted repair. Recommend a stronger model only for unresolved design/trust questions; the host controls model selection and budgets.
-
 GitHub reference for trust and permission details:
 https://docs.github.com/en/actions/reference/security/secure-use
 
 Treat the repository as the system of record. Read its agent instruction file (such as AGENTS.md), architecture notes, and documentation index before acting; rules stated there override defaults here. Work on a branch, never the default branch, and in a separate worktree when other agents may be active. If the repository defines a claim protocol for issues, claim before starting and release with a reason if you stop. Start and drive the application with the repository's own scripts; do not hard-code ports or shared state that another worktree could collide with. When a structural test, hook, or documentation check fails, follow its message; do not edit, skip, or bypass the check to get a pass. Stage files by path and open pull requests as drafts unless told otherwise.
 
 If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
+
+## Output
+
+Return changed files, triggers and permissions, checks and observed outcomes, remaining deployment steps, and recovery options.
+
+## Escalate
+
+Escalate missing production authority, destructive infrastructure plans, secret exposure, or failures beyond a bounded targeted repair. Recommend a stronger model only for unresolved design/trust questions; the host controls model selection and budgets.

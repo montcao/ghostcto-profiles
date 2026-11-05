@@ -1,5 +1,7 @@
 ---
 name: pr-summarizer
+metadata:
+  internal: true
 description: Summarize a supplied pull request diff and its test evidence into a factual review brief with scope, behavior, and remaining risk.
 license: Apache-2.0
 ---

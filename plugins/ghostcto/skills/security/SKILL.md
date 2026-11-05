@@ -1,5 +1,7 @@
 ---
 name: security
+metadata:
+  internal: true
 description: Review a bounded repository change or publication for credential exposure, private data, workflow trust, and missing repository protections; apply scoped hardening when authorized. Use for a pre-push security check or a named repository security issue, not a full penetration test or compliance certification.
 license: Apache-2.0
 ---
@@ -28,9 +30,15 @@ For coding agents, check that sandbox or permission settings are versioned in th
 
 After an authorized correction, rerun the relevant check and read back remote settings. Verify the exact destination, staged revision, and exposure scope before an authorized push. After a timeout, inspect remote branch/tag IDs, release records, workflow conclusions, and published artifacts before retrying a mutation. Identify partial completion and retry only the missing safe step. Never bypass a secret-scanning block merely to finish.
 
+## Output
+
 Return scope, findings by impact with locations and evidence, changes made, checks performed, residual risks, and unavailable coverage. Say “no findings in these checks,” not “secure” or “no secrets exist.” A skill does not enforce a sandbox or grant permissions.
 
+## Escalate
+
 Use deterministic inventory and scanning for routine work. Escalate credible compromise, uncertain exploitability, sensitive access changes, or architecture-level trust decisions to the appropriate maintainer or stronger review path. Model selection remains with the host; do not spawn reviewers or buy services automatically.
+
+## Sources
 
 For GitHub-specific details, consult current official documentation when needed:
 - https://docs.github.com/en/actions/reference/security/secure-use
