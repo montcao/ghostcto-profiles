@@ -16,6 +16,11 @@ Do not use it to decide disputed product behavior, redesign a test architecture,
 2. Convert the supplied defect or acceptance statement into an observable input and expected output. Add a case for the reported failure and, where useful, one nearby boundary case.
 3. Follow existing fixtures, assertions, naming, and cleanup patterns. Keep test data synthetic and minimal; do not embed secrets or personal data.
 4. Run the new test and the narrow relevant suite. If a failure has one clear test-side cause, make one targeted repair and rerun. Report product failures without masking them.
+5. When the test guards an architectural boundary or repository rule, make its failure message name the offending file or line and what to do instead, since the reader is often an agent that did not know the rule. Plant one violation, watch the test fail, then revert.
+
+Treat the repository as the system of record. Read its agent instruction file (such as AGENTS.md), architecture notes, and documentation index before acting; rules stated there override defaults here. Work on a branch, never the default branch, and in a separate worktree when other agents may be active. If the repository defines a claim protocol for issues, claim before starting and release with a reason if you stop. Start and drive the application with the repository's own scripts; do not hard-code ports or shared state that another worktree could collide with. When a structural test, hook, or documentation check fails, follow its message; do not edit, skip, or bypass the check to get a pass. Stage files by path and open pull requests as drafts unless told otherwise.
+
+If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
 
 ## Output
 
