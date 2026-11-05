@@ -1,5 +1,7 @@
 ---
 name: developer
+metadata:
+  internal: true
 description: Implement one small, explicitly specified code change in an existing repository when the relevant files, behavior, and acceptance checks are clear.
 license: Apache-2.0
 ---

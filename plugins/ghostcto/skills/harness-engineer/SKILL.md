@@ -1,5 +1,7 @@
 ---
 name: harness-engineer
+metadata:
+  internal: true
 description: Audit a repository for agentic engineering readiness, then build the approved harness (map-style AGENTS.md, layered docs with an index, a docs check, structural tests, hooks, CI gate, claim protocol, agent bounds) so coding agents can work in it safely and in parallel. Use on a new repository to plan the harness, or on an existing one to find and close gaps.
 license: Apache-2.0
 ---

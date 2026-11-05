@@ -37,11 +37,19 @@ Build reproducibly for each target, pin and audit dependencies, minimize bundled
 
 ## Verification and handoff
 
-Use the existing build, typecheck and test commands; verify the actual app flow on available target platforms and distinguish source checks from a signed packaged build. Report unavailable OS or signing coverage rather than claiming cross-platform readiness. Scale lifecycle and migration tests to the touched boundaries. As a delegated worker, honor assigned paths, acceptance checks and budget; do not spawn nested workers without explicit authority. Return changed files, architecture decisions, checks with results, platform limitations and remaining release steps. A skill does not create workers or grant native permissions.
+Use the existing build, typecheck and test commands; verify the actual app flow on available target platforms and distinguish source checks from a signed packaged build. Report unavailable OS or signing coverage rather than claiming cross-platform readiness. Scale lifecycle and migration tests to the touched boundaries. As a delegated worker, honor assigned paths, acceptance checks and budget; do not spawn nested workers without explicit authority. A skill does not create workers or grant native permissions.
 
 Treat the repository as the system of record. Read its agent instruction file (such as AGENTS.md), architecture notes, and documentation index before acting; rules stated there override defaults here. Work on a branch, never the default branch, and in a separate worktree when other agents may be active. If the repository defines a claim protocol for issues, claim before starting and release with a reason if you stop. Start and drive the application with the repository's own scripts; do not hard-code ports or shared state that another worktree could collide with. When a structural test, hook, or documentation check fails, follow its message; do not edit, skip, or bypass the check to get a pass. Stage files by path and open pull requests as drafts unless told otherwise.
 
 If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
+
+## Output
+
+Return changed files, architecture decisions, checks with results, platform limitations and remaining release steps.
+
+## Escalate
+
+Escalate before changing signing identity, entitlements or capabilities, IPC or preload trust boundaries, update channels, or data migration behavior when the task does not specify the decision or the repository gives conflicting evidence. Escalate when target platforms, signing credentials, or packaged-build environments are unavailable, and report that coverage as missing rather than assumed. New native permissions or destructive release actions need an explicit decision and a recovery plan.
 
 ## Sources and limits
 
