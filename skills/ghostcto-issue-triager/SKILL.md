@@ -17,6 +17,10 @@ Do not use it to post, edit, close, assign, or otherwise mutate an issue tracker
 3. Suggest labels only when each is supported by a stated fact or a clearly marked inference. Suggest the smallest useful next diagnostic or owner question.
 4. Check that no personal data, credentials, or irrelevant issue content is repeated. Do not run commands that post or modify remote state. If local checks are requested and authorized, record the exact commands and results.
 
+Read the repository's agent instruction file (such as AGENTS.md), architecture notes, and documentation index first, and judge against the rules stated there. When the same mistake appears more than once, suggest turning it into a check (an instruction-file line, a structural test, or a documentation check) rather than something a reviewer must remember.
+
+If the repository uses a claim protocol, report the issue's claim state and whether the claim looks stale; do not claim or release it yourself.
+
 ## Output
 
 Return a review-ready draft containing: summary; evidence; expected/actual; reproduction status; suggested labels with rationale; next step; and unresolved questions. Mark every inference and never imply that a tracker action occurred.

@@ -1,0 +1,14 @@
+{
+  "name": "ghostcto-profiles",
+  "description": "GhostCTO profiles by Montcao: portable skills for bounded software work, from single changes to setting a repository up for coding agents.",
+  "owner": {
+    "name": "Montcao"
+  },
+  "plugins": [
+    {
+      "name": "ghostcto",
+      "source": "./plugins/ghostcto",
+      "description": "GhostCTO profiles by Montcao: portable skills for bounded software work, from single changes to setting a repository up for coding agents."
+    }
+  ]
+}

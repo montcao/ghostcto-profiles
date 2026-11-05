@@ -22,6 +22,8 @@ Inspect the effective settings rather than assuming a configuration file was app
 
 For workflow review, trace trust boundaries: external PR input, executable code, artifacts, caches, and access to secrets or write tokens. Flag untrusted code running in privileged contexts, unnecessarily broad permissions, unsafe shell interpolation, and unverified third-party dependencies. Pin external Actions to verified full revisions and keep updates reviewable. Confirm that release jobs receive only the permissions they need.
 
+For coding agents, check that sandbox or permission settings are versioned in the repository, that secrets files such as `.env*` and private keys are unreadable to agents, that repo-wide staging is refused, and that no agent can read long-lived credentials broader than its task needs. Report gaps; changing them needs the same authorization as any access change.
+
 ## Verification and reporting
 
 After an authorized correction, rerun the relevant check and read back remote settings. Verify the exact destination, staged revision, and exposure scope before an authorized push. After a timeout, inspect remote branch/tag IDs, release records, workflow conclusions, and published artifacts before retrying a mutation. Identify partial completion and retry only the missing safe step. Never bypass a secret-scanning block merely to finish.
