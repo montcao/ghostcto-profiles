@@ -9,6 +9,7 @@ import { parse } from "yaml";
 const PLUGIN = "ghostcto";
 const PLUGIN_ROOT = `plugins/${PLUGIN}`;
 const PREFIX = "ghostcto-";
+const FORK_MODELS = ["haiku", "sonnet", "opus", "fable"];
 const SYNCED = "This path is written by the profile sync; change it in the private source repository, not here.";
 
 const failures = [];
@@ -71,9 +72,12 @@ for (const name of (await readdir("skills")).sort()) {
   if (!existsSync(copyPath)) {
     failures.push(`${copyPath}: missing plugin copy of ${name}. ${SYNCED}`);
   } else {
-    const expected = content.replace(new RegExp(`^name: ${name}$`, "m"), `name: ${slug}\nmetadata:\n  internal: true`);
-    check((await readFile(copyPath, "utf8")) === expected,
-      `${copyPath}: differs from ${file} beyond the name and metadata.internal lines. Regenerate the plugin from skills/. ${SYNCED}`);
+    // A copy may also run as a forked subagent on a cheaper model (see ARCHITECTURE.md, Boundary 2).
+    const base = `name: ${slug}\nmetadata:\n  internal: true`;
+    const allowed = [base, ...FORK_MODELS.map((model) => `${base}\ncontext: fork\nmodel: ${model}\nbackground: false`)]
+      .map((header) => content.replace(new RegExp(`^name: ${name}$`, "m"), header));
+    check(allowed.includes(await readFile(copyPath, "utf8")),
+      `${copyPath}: differs from ${file} beyond the name, metadata.internal and optional fork lines (context: fork, model: <${FORK_MODELS.join("|")}>, background: false). Regenerate the plugin from skills/. ${SYNCED}`);
     for (const extra of ["LICENSE", "NOTICE"]) {
       const path = `${PLUGIN_ROOT}/skills/${slug}/${extra}`;
       check(existsSync(path) && (await readFile(path, "utf8")) === (extra === "LICENSE" ? rootLicense : rootNotice), `${path}: must match the repository ${extra}. ${SYNCED}`);
