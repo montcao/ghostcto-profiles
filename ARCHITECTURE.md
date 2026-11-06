@@ -23,7 +23,7 @@ Each `skills/ghostcto-<slug>/` is published twice:
 - for `npx skills add --skill ghostcto-<slug>`, as is
 - for the Claude Code plugin, as `plugins/ghostcto/skills/<slug>/`, invoked as `ghostcto:<slug>`
 
-The plugin copy differs only in two frontmatter lines: `name: <slug>`, and `metadata.internal: true`. The second hides the copy from the skills CLI, which also scans plugin directories named in `.claude-plugin/marketplace.json`. `plugin.json` has no `version`, so installs follow `main`.
+The plugin copy differs only in its frontmatter: `name: <slug>`, and `metadata.internal: true`. The second hides the copy from the skills CLI, which also scans plugin directories named in `.claude-plugin/marketplace.json`. Light profiles that hold up on a cheaper model also gain `context: fork`, `model: <alias>` and `background: false`, so Claude Code runs them as a forked subagent on that model; the `skills/` copy stays portable. The plugin may also ship generated subagents in an agents folder. `plugin.json` has no `version`, so installs follow `main`.
 
 **Enforced by:**
 
