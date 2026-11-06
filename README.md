@@ -22,7 +22,13 @@ Remote installation was verified for the first eight profiles and the three appl
 
 ### Claude Code plugin
 
-In Claude Code, add this repository as a marketplace and install the `ghostcto` plugin to get every published profile at once:
+In a Claude Code session (2.1.275 or newer), install the `ghostcto` plugin to get every published profile at once:
+
+```
+/plugin install ghostcto --marketplace montcao/ghostcto-profiles
+```
+
+On an older version, add the marketplace first:
 
 ```
 /plugin marketplace add montcao/ghostcto-profiles
@@ -30,6 +36,27 @@ In Claude Code, add this repository as a marketplace and install the `ghostcto` 
 ```
 
 Plugin skills drop the `ghostcto-` prefix and take the plugin namespace instead, so `ghostcto-developer` becomes `ghostcto:developer`. The plugin under `plugins/ghostcto/` is generated from `skills/` with only that name changed. Installation through the plugin has not been verified from this repository yet.
+
+### Update
+
+Each release is listed on the [releases page](https://github.com/montcao/ghostcto-profiles/releases).
+
+Claude Code can update the plugin for you: run `/plugin`, open **Marketplaces**, select `ghostcto-profiles`, and choose **Enable auto-update**. Third-party marketplaces start with auto-update off. Once it is on, Claude Code refreshes in the background and shows `Plugin updated: ghostcto · Run /reload-plugins to apply`.
+
+To update by hand, from a terminal; restart Claude Code to apply:
+
+```sh
+claude plugin marketplace update ghostcto-profiles
+claude plugin update ghostcto@ghostcto-profiles
+```
+
+Skills CLI, from your project:
+
+```sh
+npx skills update                      # every installed skill
+npx skills update ghostcto-security    # one skill
+npx skills update -g                   # globally installed skills only
+```
 
 ## Profiles
 
