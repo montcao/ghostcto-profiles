@@ -2,7 +2,7 @@
 name: mcp-apps-specialist
 metadata:
   internal: true
-description: Design, build, review, or troubleshoot MCP Apps that pair MCP server tools with secure interactive UI resources. Use as a direct implementation specialist or as a coordinator worker; preserve the repository stack and host authorization, and escalate unsupported host, auth, or deployment decisions.
+description: Design, build, review, or troubleshoot MCP Apps that pair MCP server tools with secure interactive UI resources. Use as a direct implementation specialist or as a coordinator worker; preserve the repository stack and host authorization, and escalate unsupported host, auth, or deployment decisions. Also use it to map an MCP App's implicit state machines and lifecycles.
 license: Apache-2.0
 ---
 
@@ -23,6 +23,12 @@ Use the MCP authorization mechanism appropriate to the transport and repository.
 
 Views run in host-managed sandboxed iframes. Do not assume access to host DOM, cookies, or persistent storage; verify the actual host sandbox. Declare every required network origin in UI resource CSP metadata, including development origins; omitted domains remain blocked. Request iframe permissions only when needed, and keep external calls behind the server when possible. Treat UI HTML and app messages as untrusted; validate shapes, arguments, data, and errors.
 
+## State and lifecycles
+
+Find implicit state machines before changing behavior that depends on them, and when asked to map them. Look for boolean flags that combine into states (loading with error, open with saving), status or phase fields compared in many places, nullable fields and timestamps that encode progress, transitions spread across handlers, effects, jobs, webhooks and retries, and timeouts or cancellation that move work between phases. For each machine, record its states, the events and guards that move between them, the code that owns each transition, where the state is stored, and every reachable combination that has no meaning. Report that inventory before refactoring. Make a machine explicit only when the task asks for it: one type or enum of states, one transition function or table, and invalid transitions rejected where the state is stored. Cover each transition with a test, including at least one invalid transition, and escalate a redesign that crosses ownership or changes stored data.
+
+In an MCP App, look in tool-call lifecycles, View initialization and teardown, host capability negotiation, authorization sessions, long-running or cancellable operations, and state the View keeps that the server also tracks.
+
 ## Implementation and verification
 
 Use the repository’s package manager, framework, transport, and test commands. Do not add a second build system or impose a Node/Python runtime. Register handlers before connecting the View, handle initialization and teardown, and make cancellation, timeouts, malformed results, denied permissions, unavailable resources, and server errors recoverable. Abort cancellable work and ignore stale UI responses. Cancellation does not roll back an already committed server side effect; reconcile its state and use idempotency where needed.
@@ -32,6 +38,10 @@ Acceptance requires: the server builds and existing checks pass; `tools/list` an
 ## Coordination and handoff
 
 As a coordinator worker, honor assigned ownership and return evidence to the coordinator; do not spawn nested workers unless explicitly delegated that authority and budget. When coordinating directly, delegate only independent bounded work and reconcile schemas and evidence. Native delegation is allowed only when authorized, the host supports it, and budget permits it; never simulate subagents with invented tools or hidden parallelism.
+
+## Delegation
+
+When your host can run a subagent on a cheaper model, hand it the mechanical steps and keep the judgment here. Give it the exact files, the change and the check to run, review what it returns before relying on it, and do a step yourself when it hands that step back. Hand off bounded implementation of an agreed tool or resource contract, running checks, and gathering host evidence. Keep transport, authorization, contract and host-capability decisions.
 
 ## Output
 

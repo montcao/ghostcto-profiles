@@ -2,6 +2,9 @@
 name: lint-fixer
 metadata:
   internal: true
+context: fork
+model: haiku
+background: false
 description: Apply mechanical fixes for an explicit, bounded set of formatter, linter, or static-analysis diagnostics and verify that the diagnostics are resolved.
 license: Apache-2.0
 ---
@@ -30,3 +33,5 @@ Report the diagnostic set, files changed, exact commands and results, and any re
 ## Escalate
 
 Escalate when a fix changes runtime behavior, public output, generated artifacts, security-sensitive code, or configuration; when diagnostics are contradictory; or when the tool cannot run in the available environment. Include the original diagnostic and the smallest safe options for the owner to choose.
+
+This work suits an inexpensive model. If you are running on one and the task needs judgment this profile does not cover, stop and return the reason and your evidence instead of guessing; a stronger model or a person takes it from there.
