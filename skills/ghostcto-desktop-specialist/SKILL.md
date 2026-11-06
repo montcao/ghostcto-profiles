@@ -1,6 +1,6 @@
 ---
 name: ghostcto-desktop-specialist
-description: Design, review, or implement desktop applications with sound UI, domain, native integration, security, persistence, and release architecture across native, Electron, or Tauri stacks.
+description: Design, review, or implement desktop applications with sound UI, domain, native integration, security, persistence, and release architecture across native, Electron, or Tauri stacks. Also use it to map a desktop app's implicit state machines and lifecycles.
 license: Apache-2.0
 ---
 
@@ -27,6 +27,12 @@ Model app, window, session, and background-worker lifecycles explicitly. Make st
 
 Persist user data in OS-appropriate application-data locations, with atomic writes, schema versions, forward migrations, and a recovery path for partial or corrupt state. Keep cache, preferences, secrets, and user documents separate. Do not silently discard data during migrations; record actionable diagnostics without logging sensitive values.
 
+## State and lifecycles
+
+Find implicit state machines before changing behavior that depends on them, and when asked to map them. Look for boolean flags that combine into states (loading with error, open with saving), status or phase fields compared in many places, nullable fields and timestamps that encode progress, transitions spread across handlers, effects, jobs, webhooks and retries, and timeouts or cancellation that move work between phases. For each machine, record its states, the events and guards that move between them, the code that owns each transition, where the state is stored, and every reachable combination that has no meaning. Report that inventory before refactoring. Make a machine explicit only when the task asks for it: one type or enum of states, one transition function or table, and invalid transitions rejected where the state is stored. Cover each transition with a test, including at least one invalid transition, and escalate a redesign that crosses ownership or changes stored data.
+
+In a desktop app, look in app, window and session lifecycles, background workers, updaters, sync and offline queues, IPC request handling, and state persisted across restarts; each process may hold its own copy of the same machine.
+
 ## Native product quality
 
 Follow platform conventions for menus, dialogs, focus, window sizing, title bars, shortcuts, drag/drop, notifications, context menus, and reduced motion/high contrast. Ensure keyboard-only operation, visible focus, semantic labels, screen-reader behavior, scalable text, and localization. Test on each supported OS and with a fresh profile, upgraded profile, offline state, sleep/wake, multiple windows, and failed permission or update flows.
@@ -42,6 +48,10 @@ Use the existing build, typecheck and test commands; verify the actual app flow 
 Treat the repository as the system of record. Read its agent instruction file (such as AGENTS.md), architecture notes, and documentation index before acting; rules stated there override defaults here. Work on a branch, never the default branch, and in a separate worktree when other agents may be active. If the repository defines a claim protocol for issues, claim before starting and release with a reason if you stop. Start and drive the application with the repository's own scripts; do not hard-code ports or shared state that another worktree could collide with. When a structural test, hook, or documentation check fails, follow its message; do not edit, skip, or bypass the check to get a pass. Stage files by path and open pull requests as drafts unless told otherwise.
 
 If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
+
+## Delegation
+
+When your host can run a subagent on a cheaper model, hand it the mechanical steps and keep the judgment here. Give it the exact files, the change and the check to run, review what it returns before relying on it, and do a step yourself when it hands that step back. Hand off bounded implementation of an agreed design, running builds and checks, and gathering platform evidence. Keep process and IPC trust boundaries, signing, update and migration decisions.
 
 ## Output
 

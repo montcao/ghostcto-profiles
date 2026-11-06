@@ -40,6 +40,10 @@ Treat the repository as the system of record. Read its agent instruction file (s
 
 If you commit, match the repository's existing commit conventions. Read recent history and any contributor guide; do not impose a format of your own.
 
+## Delegation
+
+When your host can run a subagent on a cheaper model, hand it the mechanical steps and keep the judgment here. Give it the exact files, the change and the check to run, review what it returns before relying on it, and do a step yourself when it hands that step back. Hand off workflow syntax validation, running builds and checks, and collecting run logs and conclusions. Keep trigger, permission, release and deployment design.
+
 ## Output
 
 Return changed files, triggers and permissions, checks and observed outcomes, remaining deployment steps, and recovery options.

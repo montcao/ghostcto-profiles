@@ -21,6 +21,8 @@ Do not use it to build product features, choose a stack for the user, run models
 
 ## Phase 1: audit, change nothing
 
+**Gather evidence fast, then judge.** Start with one inventory pass of deterministic commands before reading any file in full: the tracked file list, agent and host configuration, CI workflows, hooks, task-runner scripts, and the docs tree. When your host can run subagents on a cheaper model, send bounded read-only scouts in parallel, one per group of principles (1–3 and 6, 4–5, 7–8, 9–10, 11–12). Give each one exact questions, and have it return paths and short quotes, not verdicts. Read only what a verdict depends on. Every verdict is yours.
+
 Write `docs/audits/agent-readiness.md`. For each principle give what exists (cite paths), the gap, and a verdict: aligned, partial, or gap. For an empty or near-empty repository, write the same file as a plan: what each principle will look like given the stack the user intends.
 
 1. **Entry point is a map.** AGENTS.md is about 100 lines: non-preference rules (one line and a link each), the commands, and where everything else lives. Host-specific files (CLAUDE.md, .cursorrules, and similar) point to AGENTS.md instead of duplicating it.
@@ -70,6 +72,10 @@ scripts/docs-check        in the repository's own language
 **Models in CI.** None unless the user says otherwise. The reviewer and doc-gardener are plain Markdown prompts a person or any agent runs.
 
 **Prove every check.** For each docs-check rule, structural test, and hook: plant one violation, watch it fail with a useful message, revert, watch it pass. A check never seen failing is unverified.
+
+## Delegation
+
+When your host can run a subagent on a cheaper model, hand it the mechanical steps and keep the judgment here. Give it the exact files, the change and the check to run, review what it returns before relying on it, and do a step yourself when it hands that step back. Hand off seeding index rows from git history, fixing broken links, and planting and reverting errors to prove a check. Keep the audit verdicts, the order of work, and anything marked as needing the user's decision.
 
 ## Output
 

@@ -69,6 +69,16 @@ These profiles are intentionally limited to routine, bounded work. They should e
 
 No universal quality, cost, speed, or model-performance claim has been established for these profiles. Evaluate them with the same task inputs, tools, and checks as a baseline, and record failures, retries, escalation, latency, and review effort. Treat unavailable model or host coverage as untested rather than estimating savings.
 
+## Credits
+
+Profiles that build on outside work name it in their own instructions and here. Credited ideas are written in GhostCTO's own words unless noted; adapted text keeps its original license, listed in [`NOTICE`](NOTICE).
+
+| Profile | Builds on | License | How |
+| --- | --- | --- | --- |
+| `ghostcto-security` | [security-audit-skill by Cloudflare](https://github.com/cloudflare/security-audit-skill) | MIT | Ideas for the codebase audit method; no upstream text included |
+
+Credit is not endorsement. To propose building on other work, open an issue with the source, its license, and what you want to adapt.
+
 ## License
 
 The profile content is available under the Apache License, Version 2.0 in [`LICENSE`](LICENSE). Dependencies, host tools, and the upstream `skills` CLI retain their own terms.

@@ -2,6 +2,9 @@
 name: issue-triager
 metadata:
   internal: true
+context: fork
+model: haiku
+background: false
 description: Turn supplied issue text, logs, and repository evidence into a structured triage summary with cautious suggested labels and next steps.
 license: Apache-2.0
 ---
@@ -30,3 +33,5 @@ Return a review-ready draft containing: summary; evidence; expected/actual; repr
 ## Escalate
 
 Escalate when evidence suggests security, privacy, data loss, abuse, a widespread outage, disputed ownership, or an irreversible user impact. Also escalate when severity, label, or reproduction cannot be supported. Include the exact evidence and the human decision required.
+
+This work suits an inexpensive model. If you are running on one and the task needs judgment this profile does not cover, stop and return the reason and your evidence instead of guessing; a stronger model or a person takes it from there.

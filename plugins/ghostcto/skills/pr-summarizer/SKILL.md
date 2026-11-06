@@ -2,6 +2,9 @@
 name: pr-summarizer
 metadata:
   internal: true
+context: fork
+model: haiku
+background: false
 description: Summarize a supplied pull request diff and its test evidence into a factual review brief with scope, behavior, and remaining risk.
 license: Apache-2.0
 ---
@@ -28,3 +31,5 @@ Return a concise draft with: problem and outcome; key changes; validation eviden
 ## Escalate
 
 Escalate when the diff changes security boundaries, data schemas, public contracts, deployment behavior, or user-visible behavior without adequate evidence. Also escalate when the diff is incomplete or check results conflict. Quote the relevant file or diagnostic and identify the reviewer decision needed.
+
+This work suits an inexpensive model. If you are running on one and the task needs judgment this profile does not cover, stop and return the reason and your evidence instead of guessing; a stronger model or a person takes it from there.
