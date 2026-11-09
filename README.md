@@ -1,6 +1,6 @@
 # GhostCTO profiles
 
-GhostCTO profiles by Montcao are portable [Agent Skills](https://agentskills.io/) for bounded software work. Each profile gives a compatible agent a focused workflow for one kind of task. A profile does not create an agent process, choose a model, change host permissions, or install anything by itself.
+GhostCTO profiles by Montcao are portable [Agent Skills](https://agentskills.io/) for bounded software work. Each profile gives a compatible agent a focused workflow for one kind of task. A profile does not change host permissions or install anything by itself. In the Claude Code plugin, the issue triager, lint fixer and PR summarizer run on an inexpensive model by default, and a profile that delegates can spawn subagents for bounded steps when the host supports them and the user allows it.
 
 ## Install
 
