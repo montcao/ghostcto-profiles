@@ -35,7 +35,7 @@ On an older version, add the marketplace first:
 /plugin install ghostcto@ghostcto-profiles
 ```
 
-Plugin skills drop the `ghostcto-` prefix and take the plugin namespace instead, so `ghostcto-developer` becomes `ghostcto:developer`. The plugin under `plugins/ghostcto/` is generated from `skills/` with only that name changed. Installation through the plugin has not been verified from this repository yet.
+Plugin skills drop the `ghostcto-` prefix and take the plugin namespace instead, so `ghostcto-developer` becomes `ghostcto:developer`. The one exception is `ghostcto-bigboss`, which the plugin names `ghostcto:start`. The plugin under `plugins/ghostcto/` is generated from `skills/` with only that name changed. Installation through the plugin has not been verified from this repository yet.
 
 ### Update
 
@@ -70,6 +70,7 @@ npx skills update -g                   # globally installed skills only
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/security.svg" width="110" alt="Security ghost" />
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/cicd-infrastructure.svg" width="110" alt="CI/CD Infrastructure ghost" />
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/harness-engineer.svg" width="110" alt="Harness Engineer ghost" />
+  <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/bigboss.svg" width="110" alt="Big Boss ghost" />
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/mcp-apps-specialist.svg" width="110" alt="MCP Apps Specialist ghost" />
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/web-specialist.svg" width="110" alt="Web Specialist ghost" />
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/desktop-specialist.svg" width="110" alt="Desktop Specialist ghost" />
@@ -86,11 +87,12 @@ npx skills update -g                   # globally installed skills only
 | `ghostcto-security` | Scoped exposure reviews and authorized repository hardening |
 | `ghostcto-cicd-infrastructure` | Bounded CI/CD repairs, validation, and release workflows |
 | `ghostcto-harness-engineer` | Auditing a repository for agent readiness, then building the approved docs, checks, hooks, and agent bounds |
+| `ghostcto-bigboss` | Planning a build from a vague goal, making the CTO calls, routing steps to the other profiles, and checking their work |
 | `ghostcto-mcp-apps-specialist` | MCP app architecture, implementation, and verification boundaries |
 | `ghostcto-web-specialist` | Web application work across client, server, and tenant isolation |
 | `ghostcto-desktop-specialist` | Desktop application work including process and IPC boundaries |
 
-The first nine are task profiles for a single kind of work. `ghostcto-harness-engineer` is new and its remote installation has not been verified yet. The three specialists are broader application profiles, scoped to one platform.
+The first nine are task profiles for a single kind of work. `ghostcto-bigboss` coordinates them: it plans, decides, delegates and verifies, and is the place to start when you are unsure which profile fits. In the plugin it is `ghostcto:start`. `ghostcto-harness-engineer` and `ghostcto-bigboss` are new and their remote installation has not been verified yet. The three specialists are broader application profiles, scoped to one platform.
 
 These profiles are intentionally limited to routine, bounded work. They should escalate unclear requirements, broad architecture changes, security-sensitive decisions, and work that exceeds the profile's output contract. Review generated changes and run the repository's own checks.
 
