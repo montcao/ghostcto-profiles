@@ -21,14 +21,16 @@ Do not use it to build product features, choose a stack for the user, run models
 - Keep the user's existing rules word for word when you move them.
 - Follow the repository's commit conventions. Use Conventional Commits only when it has none.
 
-## Phase 1: audit, change nothing
+## Phase 1: audit only
 
 **Gather evidence fast, then judge.** Start with one inventory pass of deterministic commands before reading any file in full: the tracked file list, agent and host configuration, CI workflows, hooks, task-runner scripts, and the docs tree. When your host can run subagents on a cheaper model, send bounded read-only scouts in parallel, one per group of principles (1–3 and 6, 4–5, 7–8, 9–10, 11–12). Give each one exact questions, and have it return paths and short quotes, not verdicts. Read only what a verdict depends on. Every verdict is yours.
 
-Write `docs/audits/agent-readiness.md`. For each principle give what exists (cite paths), the gap, and a verdict: aligned, partial, or gap. For an empty or near-empty repository, write the same file as a plan: what each principle will look like given the stack the user intends.
+Write the audit to `docs/audits/agent-readiness.md`. When the user asks for no changes, write no file: return the audit in your reply, or write it to a path the user names. For each principle give what exists (cite paths), the gap, and a verdict: aligned, partial, or gap. For an empty or near-empty repository, write the same audit as a plan: what each principle will look like given the stack the user intends.
+
+**Documented exceptions.** When the repository states a reason for departing from a principle, such as agent settings left untracked on purpose, ask whether it is still intentional before scoring it. If it is, score it "aligned (documented exception)" or "partial", quote the reason in the audit table, and offer a lighter alternative that fits it, such as agent prompts kept in `docs/` instead of a host directory.
 
 1. **Entry point is a map.** AGENTS.md is about 100 lines: non-preference rules (one line and a link each), the commands, and where everything else lives. Host-specific files (CLAUDE.md, .cursorrules, and similar) point to AGENTS.md instead of duplicating it.
-2. **Repository is the system of record.** Agent settings, hooks, agent prompts, and standing rules are tracked. Untracked handoff notes, scratch files, and contradictions between docs are findings.
+2. **Repository is the system of record.** Agent settings, hooks, agent prompts, and standing rules are tracked, or the repository documents why not. Untracked handoff notes, scratch files, and contradictions between docs are findings.
 3. **Knowledge is layered.** Entry point, then ARCHITECTURE.md (boundaries, which module owns which answer), then `docs/` split by kind, with an index saying what each document decides and when it was last checked.
 4. **Plans are first-class.** Active and completed plans are separate. A tech-debt ledger lists each gap and what would close it. A quality grade per area, with evidence.
 5. **Docs are checked mechanically.** Broken links, missing paths, missing commands, and documents past their review window fail a check.
@@ -38,7 +40,7 @@ Write `docs/audits/agent-readiness.md`. For each principle give what exists (cit
 9. **Architecture is enforced.** Each boundary ARCHITECTURE.md states has a small structural test whose failure names the offending line and what to do instead.
 10. **Golden principles are written and checked** wherever a check is possible.
 11. **Workflow is explicit.** Commit and PR conventions are checked by hooks and CI. A claim protocol stops parallel agents taking the same task. There is a reviewer agent, a merge philosophy (few, fast, blocking gates), and a rule for when an agent must stop and ask a person.
-12. **Agents are bounded.** Sandbox or permission settings are versioned. Secrets files are unreadable to agents. No agent holds broader credentials than its task needs.
+12. **Agents are bounded.** Sandbox or permission settings are versioned, or the repository documents why not. Secrets files are unreadable to agents. No agent holds broader credentials than its task needs.
 
 End with a summary table and an order of work, cheapest and highest-leverage first. Mark each item **no decision needed** or **needs your decision**. Moving documents, adding CI time or cost, running a model in CI, and anything that changes where people look for things always need a decision. Then stop and show the table.
 
@@ -67,7 +69,7 @@ scripts/docs-check        in the repository's own language
 
 **Claim protocol.** Agents often push as one account, so an assignee cannot say who is working on what. Before starting an issue, check for a `claimed` label. If free, add it and comment the branch and worktree. Link the PR there when it opens. Remove the claim with a reason if work stops. A claim with no push for three days is stale; comment before taking it over.
 
-**Agent bounds.** Version the host's sandbox or permission settings. Deny reads of `.env*` and key files. Add a hook that refuses repo-wide staging. Never put long-lived broad credentials where an agent can read them.
+**Agent bounds.** Version the host's sandbox or permission settings. Deny reads of `.env*` and key files. Refuse repo-wide staging with an agent-host hook, not a git hook: git runs no hook on `git add`. For example, a Claude Code `PreToolUse` hook on Bash that refuses `git add -A`, `git add .`, `git add --all`, `git add -u` and `git commit -a`. This needs versioned host settings; where the repository keeps host settings untracked as a documented exception, write the rule in AGENTS.md instead. Never put long-lived broad credentials where an agent can read them.
 
 **Moving documents.** Only after docs-check exists, with `git mv`, fixing every link, code comment, and test that names a moved path. Move explanations out of AGENTS.md into the document they belong in and leave a one-line pointer.
 
