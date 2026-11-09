@@ -25,7 +25,8 @@ Treat the repository as the system of record. Read its agent instruction file (s
 
 Decide this first, before any planning:
 
-- **No task given.** List the profiles from the Routing table in one line each, mark any the host does not list as unavailable, and ask what the user wants to build or fix.
+- **No task given.** List the profiles from the Routing table in one line each, mark any the host does not list as unavailable, and ask what the user wants to build or fix. If the repository's agent instruction file has no GhostCTO routing block, offer once in this session to add one (Project routing). Write nothing until the user says yes.
+- **The user asks to set up, update or remove project routing.** Follow Project routing. Skip the plan.
 - **One profile fully covers it.** The request is a single bounded task that matches one row of the Routing table, with its inputs present. Name the profile and say why in one line, then hand it the task with a brief from Delegation. Skip the plan. If that profile is not installed, apply its scope yourself only when the task is small and low-risk.
 - **It could be two or more profiles and the request does not decide which.** Ask one question naming the candidates.
 - **Anything else.** A vague goal, several steps, or a decision the user has not made: lead it yourself from section 1.
@@ -82,6 +83,47 @@ Send each step to the profile whose scope it matches. In the Claude Code plugin 
 | `ghostcto:worker` | An explicit list of mechanical edits or checks to run | Design, security, trust or release decisions; it returns `HANDBACK:` instead |
 
 `ghostcto:scout` and `ghostcto:worker` exist only as Claude Code plugin subagents and may be disabled; use them when the host lists them. Use a platform specialist for a feature on its platform and `ghostcto-developer` for a small change inside a design the specialist or you already settled. Run `ghostcto-security` before anything touching credentials, auth, personal data, payments or public exposure leaves the machine. Run `ghostcto-committer` last. If no profile covers a step, do it yourself only when it is small and low-risk; otherwise tell the user what expertise is missing.
+
+## Project routing
+
+A routing block in the repository's agent instruction file lets later sessions route bounded tasks to the profiles without the user starting here each time. Add one only when the user asks for it or accepts your offer. When the user asked, write it and show the block in your reply. When you offered, show the block and write it only after they say yes.
+
+- **Where.** Write to the instruction file the current host loads. In Claude Code that is CLAUDE.md; when CLAUDE.md imports AGENTS.md (an `@AGENTS.md` line), write to AGENTS.md. When no instruction file exists, propose AGENTS.md; in Claude Code, also propose a CLAUDE.md that contains only `@AGENTS.md`.
+- **What.** Write the template below. Keep a table row only for a profile the host lists. Add no rules of your own.
+- **Update.** When the file already has the markers, replace only the text between them. Leave every byte outside them unchanged. Drop rows for profiles that no longer exist.
+- **Remove.** Delete the markers and the text between them, and nothing else.
+- If the markers are unpaired or appear more than once, change nothing and show the user.
+- Do not commit unless the user asks; then stage those files by path.
+
+```
+<!-- ghostcto:routing:start -->
+## Route bounded tasks to GhostCTO profiles
+
+| Task | Profile | Invoke |
+| --- | --- | --- |
+| Fix a bug or make one small change with known files and checks | ghostcto-developer | <invocation> |
+| Add or repair tests for a named behavior | ghostcto-test-writer | <invocation> |
+| Fix reported lint, format or type diagnostics | ghostcto-lint-fixer | <invocation> |
+| Triage supplied issue text and logs | ghostcto-issue-triager | <invocation> |
+| Summarize a finished diff for review | ghostcto-pr-summarizer | <invocation> |
+| Update a README, guide or reference page | ghostcto-docs-writer | <invocation> |
+| A web app feature across browser, server and data | ghostcto-web-specialist | <invocation> |
+| A native, Electron or Tauri desktop feature | ghostcto-desktop-specialist | <invocation> |
+| MCP server tools with interactive UI | ghostcto-mcp-apps-specialist | <invocation> |
+| Change a build, CI or release pipeline | ghostcto-cicd-infrastructure | <invocation> |
+| Review a change before it is pushed or published | ghostcto-security | <invocation> |
+| Turn finished changes into commits | ghostcto-committer | <invocation> |
+| A vague goal, several steps, or a decision nobody has made | ghostcto-bigboss | <invocation> |
+
+- When a request matches a row, load that profile and follow it. If the profile is not available, work as usual.
+- Use a subagent loaded with the profile only when the task is self-contained and needs more than a few files read; otherwise work inline. Give it the goal, the files in scope, the acceptance check, and what it must not change.
+- Run ghostcto-bigboss in this session, never in a subagent: it asks the user questions and waits for approval.
+- Run subagents in parallel only when they touch separate files.
+- Treat a returned "done" as a claim: read the diff and rerun the check before you report it.
+<!-- ghostcto:routing:end -->
+```
+
+In Claude Code, `<invocation>` is `ghostcto:` followed by the profile name without its `ghostcto-` prefix, such as `ghostcto:developer`; ghostcto-bigboss is `ghostcto:start`. On a host without invocable skills, put the path to the profile's SKILL.md in the Invoke column.
 
 ## Delegation
 
