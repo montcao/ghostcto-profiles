@@ -11,6 +11,7 @@ The public distribution of GhostCTO profiles: portable Agent Skills, installable
 - **Synced paths are read-only here.** `README.md`, `LICENSE`, `NOTICE`, `skills/`, `assets/`, `plugins/ghostcto/` and `.claude-plugin/marketplace.json` are overwritten by the profile sync from the private source repository. Change them there. See [ARCHITECTURE.md](ARCHITECTURE.md).
 - **Never edit `plugins/ghostcto/` by hand.** It is generated from `skills/`.
 - **Commits and PR titles use Conventional Commits.** PRs are squash-merged and the PR title becomes the release commit. See [CONTRIBUTING.md](CONTRIBUTING.md).
+- **Credit no AI model or tool** in commits, PR titles, descriptions or issues: no model `Co-Authored-By` trailer, no `Generated with` line. Real-account co-authors such as `dependabot[bot]` are fine. `scripts/check-attribution.mjs` enforces it on every PR.
 - **Work on a branch, never `main`.** Stage files by path; repo-wide staging is refused by the agent hook.
 - **Open PRs as drafts** and mark them ready when checks pass and the description lists the checks you ran.
 - **Do not bypass a failing check.** Its message says what to do. Never use `--no-verify`.
