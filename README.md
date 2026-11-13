@@ -35,7 +35,7 @@ On an older version, add the marketplace first:
 /plugin install ghostcto@ghostcto-profiles
 ```
 
-Plugin skills drop the `ghostcto-` prefix and take the plugin namespace instead, so `ghostcto-developer` becomes `ghostcto:developer`. The one exception is `ghostcto-bigboss`, which the plugin names `ghostcto:start`. The plugin under `plugins/ghostcto/` is generated from `skills/` with only that name changed. Installation through the plugin has not been verified from this repository yet.
+Plugin skills drop the `ghostcto-` prefix and take the plugin namespace instead, so `ghostcto-developer` becomes `ghostcto:developer`. The one exception is `ghostcto-bigboss`, which the plugin names `ghostcto:start`. The plugin under `plugins/ghostcto/` is generated from `skills/` with only that name changed. A plugin install from this repository was verified on 2026-11-13: the installed skills matched `plugins/ghostcto/skills/` exactly.
 
 ### Update
 
@@ -92,7 +92,7 @@ npx skills update -g                   # globally installed skills only
 | `ghostcto-web-specialist` | Web application work across client, server, and tenant isolation |
 | `ghostcto-desktop-specialist` | Desktop application work including process and IPC boundaries |
 
-The first nine are task profiles for a single kind of work. `ghostcto-bigboss` coordinates them: it plans, decides, delegates and verifies, and is the place to start when you are unsure which profile fits. In the plugin it is `ghostcto:start`. `ghostcto-harness-engineer` and `ghostcto-bigboss` are new and their remote installation has not been verified yet. The three specialists are broader application profiles, scoped to one platform.
+The first nine are task profiles for a single kind of work. `ghostcto-bigboss` coordinates them: it plans, decides, delegates and verifies, and is the place to start when you are unsure which profile fits. In the plugin it is `ghostcto:start`. The three specialists are broader application profiles, scoped to one platform.
 
 These profiles are intentionally limited to routine, bounded work. They should escalate unclear requirements, broad architecture changes, security-sensitive decisions, and work that exceeds the profile's output contract. Review generated changes and run the repository's own checks.
 
