@@ -73,6 +73,7 @@ npx skills update -g                   # globally installed skills only
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/bigboss.svg" width="110" alt="Big Boss ghost" />
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/mcp-apps-specialist.svg" width="110" alt="MCP Apps Specialist ghost" />
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/web-specialist.svg" width="110" alt="Web Specialist ghost" />
+  <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/web-designer.svg" width="110" alt="Web Designer ghost" />
   <img src="https://raw.githubusercontent.com/montcao/ghostcto-profiles/main/assets/desktop-specialist.svg" width="110" alt="Desktop Specialist ghost" />
 </p>
 
@@ -90,9 +91,10 @@ npx skills update -g                   # globally installed skills only
 | `ghostcto-bigboss` | Planning a build from a vague goal, making the CTO calls, holding code to first-principles design, untangling a named area one approved fix at a time, routing steps to the other profiles, and checking their work |
 | `ghostcto-mcp-apps-specialist` | MCP app architecture, implementation, and verification boundaries |
 | `ghostcto-web-specialist` | Web application work across client, server, and tenant isolation |
+| `ghostcto-web-designer` | Measured visual design for websites: typography, spacing, layout, hierarchy, contrast, motion, and responsive composition |
 | `ghostcto-desktop-specialist` | Desktop application work including process and IPC boundaries |
 
-The first nine are task profiles for a single kind of work. `ghostcto-bigboss` coordinates them: it plans, decides, delegates and verifies, and is the place to start when you are unsure which profile fits. In the plugin it is `ghostcto:start`. The three specialists are broader application profiles, scoped to one platform.
+The first nine are task profiles for a single kind of work. `ghostcto-bigboss` coordinates them: it plans, decides, delegates and verifies, and is the place to start when you are unsure which profile fits. In the plugin it is `ghostcto:start`. The four specialists are broader application profiles, scoped to one platform; `ghostcto-web-designer` is the design side of `ghostcto-web-specialist`.
 
 These profiles are intentionally limited to routine, bounded work. They should escalate unclear requirements, broad architecture changes, security-sensitive decisions, and work that exceeds the profile's output contract. Review generated changes and run the repository's own checks.
 
