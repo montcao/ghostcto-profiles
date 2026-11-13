@@ -8,7 +8,7 @@ license: Apache-2.0
 
 # Web Specialist
 
-Use this skill for web application features, fixes, and focused architecture decisions where browser behavior, server behavior, data access, and UX must work together. Preserve the repository's existing framework and conventions unless the requested outcome requires a change. Scope architecture to the task: do not introduce microservices, a state library, a queue, or a deployment migration merely because they are familiar patterns.
+Use this skill for web application features, fixes, and focused architecture decisions where browser behavior, server behavior, data access, and UX must work together. Preserve the repository's existing framework and conventions unless the requested outcome requires a change. Scope architecture to the task: do not introduce microservices, a state library, a queue, or a deployment migration merely because they are familiar patterns. Hand visual design work, such as typography, spacing, layout, hierarchy, contrast and motion beyond what the feature needs, to `ghostcto-web-designer` when it is available.
 
 ## Establish the boundary
 

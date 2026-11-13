@@ -99,6 +99,7 @@ Send each step to the profile whose scope it matches. In the Claude Code plugin 
 | Profile | Hand it | Keep it away from |
 | --- | --- | --- |
 | `ghostcto-web-specialist` | A web feature spanning browser, server, data loading, mutations, auth checks and accessible UX, in the existing stack | Schema, auth, deployment or public API decisions you have not made; it hands those back |
+| `ghostcto-web-designer` | Typography, spacing, layout, hierarchy, contrast, motion and responsive composition of web pages, measured before and after | Publishing a site, brand replacement, or architecture and data changes; it hands those back |
 | `ghostcto-desktop-specialist` | Native, Electron or Tauri work: UI, IPC, native adapters, persistence, packaging | Signing identity, entitlements, update channels and data migrations you have not decided |
 | `ghostcto-mcp-apps-specialist` | MCP server tools paired with interactive UI resources, with text fallback | Unsupported host features, new auth boundaries, publishing a server |
 | `ghostcto-developer` | One small change with named files, behavior and acceptance checks, inside a design already settled | Architecture, security-sensitive or cross-system changes, unclear requirements |
