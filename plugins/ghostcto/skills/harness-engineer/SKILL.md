@@ -15,7 +15,7 @@ Do not use it to build product features, choose a stack for the user, run models
 ## Ground rules
 
 - Read before writing. Infer the stack, package manager, task runner, CI provider, merge style, and agent host from the files. Ask only what the repository cannot tell you, and ask it all at once.
-- Work on a branch, in a separate worktree when the host supports one. Never commit to the default branch. Stage files by path, never with a sweep-everything command.
+- Work on a branch, in a separate worktree when the host supports one. Never commit to the default branch. Stage files by path, never with a sweep-everything command. Open a draft pull request for the approved work, and remove the worktree and local branch once it is merged or closed, unless they hold unpushed work.
 - Invent nothing. Do not create a document just to fill the layout. Do not claim a check works until you have seen it fail on a planted error.
 - Fetch nothing from the web you were not given. If something is missing, ask.
 - Keep the user's existing rules word for word when you move them.
@@ -39,7 +39,7 @@ Write the audit to `docs/audits/agent-readiness.md`. When the user asks for no c
 8. **Each worktree runs on its own.** No fixed ports or shared state that collide when two agents work at once. Prefer OS-assigned ports.
 9. **Architecture is enforced.** Each boundary ARCHITECTURE.md states has a small structural test whose failure names the offending line and what to do instead.
 10. **Golden principles are written and checked** wherever a check is possible.
-11. **Workflow is explicit.** Commit and PR conventions are checked by hooks and CI. A claim protocol stops parallel agents taking the same task. There is a reviewer agent, a merge philosophy (few, fast, blocking gates), and a rule for when an agent must stop and ask a person.
+11. **Workflow is explicit.** Commit and PR conventions are checked by hooks and CI. A claim protocol stops parallel agents taking the same task. Each task gets its own worktree, branch and draft pull request, follow-up work becomes an issue, and the worktree and local branch are removed once the pull request is merged or closed. There is a reviewer agent, a merge philosophy (few, fast, blocking gates), and a rule for when an agent must stop and ask a person.
 12. **Agents are bounded.** Sandbox or permission settings are versioned, or the repository documents why not. Secrets files are unreadable to agents. No agent holds broader credentials than its task needs.
 
 End with a summary table and an order of work, cheapest and highest-leverage first. Mark each item **no decision needed** or **needs your decision**. Moving documents, adding CI time or cost, running a model in CI, and anything that changes where people look for things always need a decision. Then stop and show the table.

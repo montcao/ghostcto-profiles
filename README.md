@@ -87,7 +87,7 @@ npx skills update -g                   # globally installed skills only
 | `ghostcto-security` | Scoped exposure reviews and authorized repository hardening |
 | `ghostcto-cicd-infrastructure` | Bounded CI/CD repairs, validation, and release workflows |
 | `ghostcto-harness-engineer` | Auditing a repository for agent readiness, then building the approved docs, checks, hooks, and agent bounds |
-| `ghostcto-bigboss` | Planning a build from a vague goal, making the CTO calls, routing steps to the other profiles, and checking their work |
+| `ghostcto-bigboss` | Planning a build from a vague goal, making the CTO calls, holding code to first-principles design, untangling a named area one approved fix at a time, routing steps to the other profiles, and checking their work |
 | `ghostcto-mcp-apps-specialist` | MCP app architecture, implementation, and verification boundaries |
 | `ghostcto-web-specialist` | Web application work across client, server, and tenant isolation |
 | `ghostcto-desktop-specialist` | Desktop application work including process and IPC boundaries |
