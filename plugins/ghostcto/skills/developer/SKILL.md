@@ -14,7 +14,7 @@ Do not use it for architecture redesign, broad migrations, security-sensitive ch
 
 ## Procedure
 
-1. Inspect the named files and their immediate dependencies. Read local contribution rules and identify the existing test, typecheck, lint, or build commands.
+1. Inspect the named files and their immediate dependencies. Read local contribution rules and identify the existing test, typecheck, lint, or build commands. Before running one, read what it executes: the task-runner target and its prerequisites, the script it calls, and the config it loads. Never read and run in the same command. Do not run anything that resets, migrates, deletes, deploys or pushes against a database, host or account that is not plainly local and disposable; say what it would do and ask.
 2. Restate the requested behavior as a small change and note any assumption that could affect the result. If the target or expected behavior is ambiguous, stop and report the evidence.
 3. Use deterministic search, formatters, generators, and repository tools before making an edit. Implement only the requested change, following nearby patterns.
 4. Run the narrowest meaningful checks. If a check fails, make at most one targeted repair when the cause is clear, then rerun it. Do not broaden the task to make unrelated checks pass.
