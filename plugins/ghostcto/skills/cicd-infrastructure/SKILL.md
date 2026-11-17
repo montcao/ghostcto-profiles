@@ -14,6 +14,8 @@ Deliver the smallest pipeline change that meets the requested outcome. Determine
 
 Read current workflows, lockfiles, runtime pins, release configuration, and repository rules. Distinguish a failing command from a blocked environment, such as network restrictions, missing credentials, unsupported runtime, or full disk. Do not expose credentials while diagnosing. Preserve user runtime defaults and unrelated files; clean only disposable artifacts created for this task when necessary.
 
+Read before running. Before running a project command, read what it executes: the task-runner target and its prerequisites, the script or workflow it calls, and the config, backend or context it loads. Never read and run in the same command. Do not run `terraform apply`, mutating `kubectl`, migrations, workflow dispatch, deploys or pushes against a cluster, database, host or account that is not plainly local and disposable; say what it would do and ask.
+
 Use the existing stack. Avoid a new installer, orchestration service, cloud provider, or model router for a task that standard CI can handle. Prefer established scripts and deterministic validation over repeated model calls.
 
 ## Pipeline design

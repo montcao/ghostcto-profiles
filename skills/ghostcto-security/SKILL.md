@@ -38,7 +38,7 @@ For coding agents, check that sandbox or permission settings are versioned in th
    - **Rejected:** keep the reason, so later runs do not repeat the work.
 
    Give severity (critical, high, medium, low, informational) only to confirmed findings, and never above the demonstrated impact. Keep likelihood and impact separate from certainty.
-6. **Execute safely.** Do not install dependencies, contact deployed or external endpoints, or upload code. Run target code only inside an isolated sandbox with no network, an empty environment, a read-only target and resource limits. Otherwise mark the dependent finding needs validation.
+6. **Execute safely.** At either depth, before running a project command, scanner or exploit script, read what it executes: the script, its prerequisites, the config it loads and the targets it resolves. Never read and run in the same command. Do not install dependencies, contact deployed or external endpoints, or upload code. Never point a scanner or exploit at a host, database or account that is not plainly local and disposable; say what it would do and ask. Run target code only inside an isolated sandbox with no network, an empty environment, a read-only target and resource limits. Otherwise mark the dependent finding needs validation.
 7. **Fix at the source.** Describe the smallest effective fix for each finding. Apply fixes only when remediation is authorized, one finding at a time, each with a regression test.
 
 Report what was covered and what was not. One run never exhausts a codebase.
