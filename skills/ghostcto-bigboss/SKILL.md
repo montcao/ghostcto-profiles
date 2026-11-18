@@ -141,6 +141,7 @@ A routing block in the repository's agent instruction file lets later sessions r
 | Summarize a finished diff for review | ghostcto-pr-summarizer | <invocation> |
 | Update a README, guide or reference page | ghostcto-docs-writer | <invocation> |
 | A web app feature across browser, server and data | ghostcto-web-specialist | <invocation> |
+| Review or improve the visual design of a web page or app | ghostcto-web-designer | <invocation> |
 | A native, Electron or Tauri desktop feature | ghostcto-desktop-specialist | <invocation> |
 | MCP server tools with interactive UI | ghostcto-mcp-apps-specialist | <invocation> |
 | Change a build, CI or release pipeline | ghostcto-cicd-infrastructure | <invocation> |
