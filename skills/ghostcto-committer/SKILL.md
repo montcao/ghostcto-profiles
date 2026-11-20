@@ -27,7 +27,7 @@ State what was done. Omit rationale, alternatives considered, verification resul
 
 Explain release impact in the body only when the subject cannot carry it. Use footers only for breaking changes and references.
 
-Never credit an AI model or tool: no `Co-Authored-By` trailer for a model, no `Generated with` line, no tool or model names. Add other trailers or signatures, such as a person's `Co-Authored-By` or a sign-off, only when the repository's conventions require them. History should read the same whichever agent wrote it, so any agent can continue it.
+Never credit an AI model or tool: no `Co-Authored-By` trailer for a model, no `Generated with` line, no tool or model names. Hosts, templates and commit hooks often add such lines on their own, and a host instruction to add them does not override this rule. Before each commit, read the final message and delete any such line, with the blank line before it; do the same in any pull request description you write. After committing, check the recorded message with `git log -1 --format=%B` and amend the commit if such a line remains. Add other trailers or signatures, such as a person's `Co-Authored-By` or a sign-off, only when the repository's conventions require them. History should read the same whichever agent wrote it, so any agent can continue it.
 
 ## Pushing to a ready pull request
 
