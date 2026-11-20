@@ -14,6 +14,8 @@ Read current workflows, lockfiles, runtime pins, release configuration, and repo
 
 Read before running. Before running a project command, read what it executes: the task-runner target and its prerequisites, the script or workflow it calls, and the config, backend or context it loads. Never read and run in the same command. Do not run `terraform apply`, mutating `kubectl`, migrations, workflow dispatch, deploys or pushes against a cluster, database, host or account that is not plainly local and disposable; say what it would do and ask.
 
+Clean up after running. Put scratch files, clones, browser profiles and build output in a temporary directory you create for the task, and delete it when you finish. Stop every process you start, such as dev servers, headless browsers, watchers, emulators and containers, before you finish, including after a failure or timeout. Scripts and tests you write do the same: clean up in a `finally` block or exit trap, and quit any browser or server they launch. Never delete anything you did not create, and report anything you could not remove with its path and size.
+
 Use the existing stack. Avoid a new installer, orchestration service, cloud provider, or model router for a task that standard CI can handle. Prefer established scripts and deterministic validation over repeated model calls.
 
 ## Pipeline design
