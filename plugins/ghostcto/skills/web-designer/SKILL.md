@@ -34,6 +34,8 @@ Never present a proposed value as measured. Editing CSS is not proof of how it r
 6. **Verify.** Re-read computed values and rendered behavior at representative widths, just above and below each breakpoint, at 320 CSS px, with text resized and at 200% zoom, with reduced motion on, and with keyboard focus moving through the page.
 7. **Report** in the output format below, with evidence, limits and open questions.
 
+Clean up after running. Put scratch files, clones, browser profiles and build output in a temporary directory you create for the task, and delete it when you finish. Stop every process you start, such as dev servers, headless browsers, watchers, emulators and containers, before you finish, including after a failure or timeout. Scripts and tests you write do the same: clean up in a `finally` block or exit trap, and quit any browser or server they launch. Never delete anything you did not create, and report anything you could not remove with its path and size.
+
 ## Decision rules
 
 The formulas, ranges and worked examples live in `references/math.md`. Apply them with judgment; do not run a formula mechanically and call the result a design.

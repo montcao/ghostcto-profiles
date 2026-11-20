@@ -31,6 +31,8 @@ In an MCP App, look in tool-call lifecycles, View initialization and teardown, h
 
 ## Implementation and verification
 
+Clean up after running. Put scratch files, clones, browser profiles and build output in a temporary directory you create for the task, and delete it when you finish. Stop every process you start, such as dev servers, headless browsers, watchers, emulators and containers, before you finish, including after a failure or timeout. Scripts and tests you write do the same: clean up in a `finally` block or exit trap, and quit any browser or server they launch. Never delete anything you did not create, and report anything you could not remove with its path and size.
+
 Use the repository’s package manager, framework, transport, and test commands. Do not add a second build system or impose a Node/Python runtime. Register handlers before connecting the View, handle initialization and teardown, and make cancellation, timeouts, malformed results, denied permissions, unavailable resources, and server errors recoverable. Abort cancellable work and ignore stale UI responses. Cancellation does not roll back an already committed server side effect; reconcile its state and use idempotency where needed.
 
 Acceptance requires: the server builds and existing checks pass; `tools/list` and resource discovery expose the contract; a capable host renders the resource and completes initialization, input/result delivery, app-only calls, and teardown; an incapable host receives useful text; CSP blocks undeclared origins; auth and side-effect checks fail closed; cancellation and errors do not leave stale UI state; and model context stays within budget. Use an official/reference host or existing compliant host when available, and record host/version limits.

@@ -30,6 +30,8 @@ In a web app, look in component and store state, request and form lifecycles, op
 
 ## Implement and verify
 
+Clean up after running. Put scratch files, clones, browser profiles and build output in a temporary directory you create for the task, and delete it when you finish. Stop every process you start, such as dev servers, headless browsers, watchers, emulators and containers, before you finish, including after a failure or timeout. Scripts and tests you write do the same: clean up in a `finally` block or exit trap, and quit any browser or server they launch. Never delete anything you did not create, and report anything you could not remove with its path and size.
+
 Use deterministic repository search, existing generators, formatters, and test utilities. Keep changes focused and follow nearby patterns. Add meaningful tests for authorization and tenant scoping, validation, race or retry behavior, and important user outcomes. Run the narrowest relevant unit, integration, browser, lint, typecheck, and build checks, expanding only when a boundary warrants it. For browser checks, exercise the actual route and report viewport, authentication state, and unavailable dependencies.
 
 Whether working independently or as a delegated worker, state the outcome, assumptions, ownership, files in scope, and acceptance checks at the start. A delegated worker must not silently change schemas, public APIs, deployment configuration, or product policy. Return dependencies or ownership conflicts to the coordinator; do not spawn nested workers without delegated authority and budget.
