@@ -14,10 +14,12 @@ Assess the specified change and report evidence-backed risks. Establish the repo
 
 ## Exposure review
 
-- Inspect the exact diff or export that will leave the machine, including tracked files, generated artifacts, symlinks, submodules, and commit metadata. For an existing repository becoming public, examine relevant history as well as the current tree. An ignored file may still be tracked or present in history; inspect the actual packaged bytes or export manifest, not just `.gitignore`.
+- Inspect the exact diff or export that will leave the machine, including tracked files, generated artifacts, symlinks, submodules, and commit metadata. Before any push or share, read every commit that will be sent (for example `git log -p` over the range the destination lacks), not only the final diff: a file added in one commit and deleted in a later one is still published. For an existing repository becoming public, examine its whole history as well as the current tree. An ignored file may still be tracked or present in history; inspect the actual packaged bytes or export manifest, not just `.gitignore`.
 - For a deliberately separate public component, stage only an explicit allowlist into a clean directory and inspect it before pushing. Do not copy application history, environment files, internal reports, customer data, local filesystem paths, or credentials by default. Preserve required licenses and truthful attribution. Do not rewrite an existing repository's history as a routine cleanup.
 - Verify commit author and committer attribution before publication. If privacy is needed, use the actual contributor’s verified account-specific private email; never invent a generic noreply identity. Check the hosting provider’s attribution after the push. Repairing already-published metadata changes commit IDs and may affect tags and consumers, so scope and authorize that repair explicitly.
 - Prefer established local secret scanners with redacted output and the repository's existing checks. Review findings without printing matching secret values, dumping environment variables, or uploading sensitive files to an external scanner. Report locations and secret types, not secret contents. Pattern searches supplement scanners; they are not proof of safety.
+- Never write a credential's literal value into a command, file, test, fixture, commit message or reply, including a value the user pasted and including while reproducing a bug: commands land in shell history and logs. Use a synthetic value of the same shape, refer to the real one by type and location, and confirm removal with a scanner or a search for a short prefix.
+- Do not copy real personal or customer records into tests, fixtures, examples, commit messages or replies, even a single name, identifier or note. Write synthetic records with the same shape and edge cases.
 - If a credible live credential is found, stop the affected publication and report it privately with redacted evidence. Recommend revocation or rotation by the authorized owner and assess prior exposure. Removing a file alone does not invalidate a leaked credential. Do not rotate unrelated credentials, delete evidence, or rewrite remote history without authorization.
 
 ## Repository and workflow controls
@@ -27,6 +29,14 @@ Inspect the effective settings rather than assuming a configuration file was app
 For workflow review, trace trust boundaries: external PR input, executable code, artifacts, caches, and access to secrets or write tokens. Flag untrusted code running in privileged contexts, unnecessarily broad permissions, unsafe shell interpolation, and unverified third-party dependencies. Pin external Actions to verified full revisions and keep updates reviewable. Confirm that release jobs receive only the permissions they need.
 
 For coding agents, check that sandbox or permission settings are versioned in the repository, that secrets files such as `.env*` and private keys are unreadable to agents, that repo-wide staging is refused, and that no agent can read long-lived credentials broader than its task needs. Report gaps; changing them needs the same authorization as any access change.
+
+## Irreversible and published changes
+
+Some actions cannot be undone by a later commit. Before taking one, read the repository's release, retention and change-control documents. When they apply, or you cannot tell, stop and ask: prepare what you can locally, name what the action would destroy or expose and the approval it needs, and propose a safe alternative.
+
+- **Published refs.** Treat pushed release tags, published packages and pushed shared history as immutable. Do not move, delete or force-push them, even when asked or told force is fine; propose a new version or a revert instead.
+- **The only copy.** Before deleting or overwriting a file that is untracked, ignored or otherwise the only copy (keys, evidence, exports, backups), check whether anything still depends on it. Retiring or rotating a key does not make it safe to delete while data encrypted with it still exists.
+- **Weakening a control.** A change that relaxes review requirements, branch protection, code ownership, runner trust or access to secrets is an access change. Follow the documented approval path, and until approval is given, do not commit it to a protected branch or push it anywhere it could take effect.
 
 ## Codebase audit
 
