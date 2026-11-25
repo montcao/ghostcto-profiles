@@ -37,6 +37,8 @@ On an older version, add the marketplace first:
 
 Plugin skills drop the `ghostcto-` prefix and take the plugin namespace instead, so `ghostcto-developer` becomes `ghostcto:developer`. The one exception is `ghostcto-bigboss`, which the plugin names `ghostcto:start`. The plugin under `plugins/ghostcto/` is generated from `skills/` with only that name changed. A plugin install from this repository was verified on 2026-11-13: the installed skills matched `plugins/ghostcto/skills/` exactly.
 
+The plugin also ships one Claude Code hook, `herdr-ghosts` (`plugins/ghostcto/hooks/`). It does nothing unless Claude Code is running inside a [herdr](https://herdr.dev) pane. Inside one, it records what the session does so a herdr pane can show which GhostCTO profile is working, what each profile did, and a short recap. It writes to `~/.local/state/ghostcto/herdr/`, readable only by you: the herdr pane id, session id and time of each event; which GhostCTO profile started; each tool's name with one detail (a file path, a subagent type, or the program and subcommand of a shell command, never its arguments); and the end of each turn. It also keeps Claude's latest reply, cut to 4 KB with common token formats removed, and deletes it when the session ends. It stores no prompts, file contents or command output, prints nothing, and never blocks a prompt.
+
 ### Update
 
 Each release is listed on the [releases page](https://github.com/montcao/ghostcto-profiles/releases).

@@ -57,9 +57,10 @@ One question decides most design calls: **do these pieces change for the same re
 - **Downhill.** Depend on what changes less. Core logic does not import a vendor, a framework detail or a UI.
 - **Visible.** A dependency the code does not show is a trap: shared mutable state, a required call order, a file one module writes and another reads. Make it an argument, a type or a check.
 - **Earned.** Every layer, wrapper, option and extension point needs a present reason. A wrapper that only forwards, a setting nobody changes and code nothing calls are removed, not kept for later.
+- **Small.** A code file stays at 500 lines or fewer; generated files and lockfiles are exempt. A file past that is split into modules along the lines above before it grows further.
 - **Explained.** An exception to the normal path (a branch for one value, a retry, a sleep, a swallowed error, a skipped test) is a requirement the design has not absorbed. Find the reason before you touch it.
 
-A comment earns its place by recording what the code cannot show: an outside constraint, a decision, a reason. A comment that restates the next line goes when that line changes. A test earns its place by failing when behavior breaks; a test that mirrors the implementation or cannot fail protects nothing.
+Code carries no comments by default. A comment earns its place only by recording what the code cannot show, such as an outside constraint, a decision or a reason, and it fits on one line. A comment that restates the next line goes when that line changes. A test earns its place by failing when behavior breaks; a test that mirrors the implementation or cannot fail protects nothing.
 
 ## 3. Write the plan
 
@@ -186,7 +187,7 @@ Return:       the profile's Output section, plus anything it escalated
 - Treat every returned "done" or "passed" as a claim. Read the diff, and rerun the acceptance check or read output you saw run. A check that was not run is not passed.
 - Reject or question changes outside the brief's files or constraints.
 - Check that the step left nothing behind: no server, browser, watcher, emulator or container it started is still running, and no temporary directory it created remains. Ask the specialist to list them if it did not. Have leftovers removed, or remove what was started for this task yourself, and report any that remain with path and size. Apply this to every profile, including one without its own cleanup rule.
-- Review the diff against the Engineering standards. Send it back when it copies a rule that already exists, imports toward something more volatile, adds a parameter for one caller, wraps without adding anything, or adds an exception without its reason.
+- Review the diff against the Engineering standards. Send it back when it copies a rule that already exists, imports toward something more volatile, adds a parameter for one caller, wraps without adding anything, adds an exception without its reason, adds a comment block or a comment that restates the code, or takes a file past 500 lines.
 - Answer a specialist's escalation yourself only when the plan already settles it; otherwise take it to the user.
 - If a step fails twice, stop and re-plan instead of retrying.
 - Mark each step **done** (with its evidence), **done, unverified** (with what is missing), or **blocked** (with what would unblock it).

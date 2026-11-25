@@ -59,6 +59,8 @@ Report what was covered and what was not. One run never exhausts a codebase.
 
 After an authorized correction, rerun the relevant check and read back remote settings. Verify the exact destination, staged revision, and exposure scope before an authorized push. After a timeout, inspect remote branch/tag IDs, release records, workflow conclusions, and published artifacts before retrying a mutation. Identify partial completion and retry only the missing safe step. Never bypass a secret-scanning block merely to finish.
 
+Write code that reads without comments. Add a comment only for what the code cannot show, such as an outside constraint or a workaround, and keep it to one line; never add comment blocks or comments that restate the code. Keep each code file at 500 lines or fewer; generated files and lockfiles are exempt. When a change would take a file past 500 lines, first split it into modules that each change for one reason. When a file is already over 500 lines and splitting it is outside the task, put new code in a new module and record the split as follow-up work.
+
 ## Delegation
 
 When your host can run a subagent on a cheaper model, hand it the mechanical steps and keep the judgment here. Give it the exact files, the change and the check to run, review what it returns before relying on it, and do a step yourself when it hands that step back. Hand off file and history inventories, scanner runs, and redacted lists of findings. Keep exploitability, trust-boundary, access and disclosure decisions.
